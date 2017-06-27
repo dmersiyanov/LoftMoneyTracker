@@ -8,12 +8,12 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Add_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_add);
         final EditText name = (EditText) findViewById(R.id.name);
         final EditText price = (EditText) findViewById(R.id.price);
         final TextView add = (TextView) findViewById(R.id.add);
