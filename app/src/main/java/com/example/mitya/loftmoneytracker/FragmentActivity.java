@@ -19,7 +19,6 @@ public class FragmentActivity extends AppCompatActivity {
 
         pages.setAdapter(new MainPagerAdapter());
         tabs.setupWithViewPager(pages);
-
     }
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
@@ -34,10 +33,13 @@ public class FragmentActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            Bundle args = new Bundle();
             if (position == getCount() - 1)
                 return new BalanceFragment();
-            Bundle args = new Bundle();
-            args.putString("type", types[position]);
+            if (position == 2) args.putString("type", Item.TYPE_INCOME);
+            else args.putString("type", types[position]);
+
+
 
             final ItemsFragment itemsFragment = new ItemsFragment();
             itemsFragment.setArguments(args);
