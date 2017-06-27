@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
 
 
 public class FragmentActivity extends AppCompatActivity {
@@ -17,7 +16,6 @@ public class FragmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragments);
         final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         final ViewPager pages = (ViewPager) findViewById(R.id.pages);
-        final LinearLayout layout = (LinearLayout) findViewById(R.id.balance);
 
         pages.setAdapter(new MainPagerAdapter());
         tabs.setupWithViewPager(pages);
@@ -44,12 +42,6 @@ public class FragmentActivity extends AppCompatActivity {
             final ItemsFragment itemsFragment = new ItemsFragment();
             itemsFragment.setArguments(args);
             return itemsFragment;
-//            final ItemsFragment fragment = new ItemsFragment();
-//            Bundle args = new Bundle();
-//            args.putString(ItemsFragment.ARG_TYPE, Item.TYPE_EXPENSE);
-//            fragment.setArguments(args);
-//            return fragment;
-
         }
 
         @Override
@@ -59,10 +51,7 @@ public class FragmentActivity extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-
             return titles[position];
         }
     }
-
-
 }

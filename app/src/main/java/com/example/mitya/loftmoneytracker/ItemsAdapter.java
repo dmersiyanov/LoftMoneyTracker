@@ -59,6 +59,4 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
 
         }
     }
-
-
 }
