@@ -39,8 +39,6 @@ public class FragmentActivity extends AppCompatActivity {
             if (position == 2) args.putString("type", Item.TYPE_INCOME);
             else args.putString("type", types[position]);
 
-
-
             final ItemsFragment itemsFragment = new ItemsFragment();
             itemsFragment.setArguments(args);
             return itemsFragment;
