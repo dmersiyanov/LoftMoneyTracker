@@ -34,18 +34,11 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
         Item item = items.get(position);
         holder.name.setText(item.name);
         holder.price.setText(String.valueOf(item.price) + "\u20bd");
-        //holder.price.setText(getString(R.string.rub_sign_format, item.price) );
-
     }
 
     @Override
     public int getItemCount() {
         return items.size();
-    }
-
-    void add(Item item) {
-        items.add(0, item);
-        notifyItemInserted(0);
     }
 
     static class ItemViewHolder extends RecyclerView.ViewHolder {

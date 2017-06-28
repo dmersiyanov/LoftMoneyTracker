@@ -11,9 +11,9 @@
     <style name="Text.Item" parent="">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">@dimen/margin_L</item>
+        <item name="android:padding">@dimen/margin_l</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">@dimen/regularText</item>
+        <item name="android:textSize">@dimen/regular_text</item>
     </style>
 
 </resources>

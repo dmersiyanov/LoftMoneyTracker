@@ -3,7 +3,6 @@
     <string name="name_hint">Название</string>
     <string name="price_hint">0</string>
     <string name="rub_sign">₽</string>
-    <string name="rub_sign_format">d% ₽</string>
 
     <string name="expenses">РАСХОДЫ</string>
     <string name="incomes">ДОХОДЫ</string>

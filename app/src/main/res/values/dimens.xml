@@ -1,7 +1,7 @@
 <resources>
-    <dimen name="margin_L">15dp</dimen>
-    <dimen name="regularText">20sp</dimen>
-    <dimen name="margin_S">5dp</dimen>
-    <dimen name="margin_M">10dp</dimen>
+    <dimen name="margin_l">15dp</dimen>
+    <dimen name="regular_text">20sp</dimen>
+    <dimen name="margin_s">5dp</dimen>
+    <dimen name="margin_m">10dp</dimen>
 
 </resources>
