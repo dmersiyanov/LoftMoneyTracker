@@ -19,6 +19,7 @@ public class FragmentActivity extends AppCompatActivity {
 
         pages.setAdapter(new MainPagerAdapter());
         tabs.setupWithViewPager(pages);
+        getSupportActionBar().setElevation(0);
     }
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
