@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             titles = getResources().getStringArray(R.array.main_pager_titles);
         }
 
-
         @Override
         public Fragment getItem(int position) {
             Bundle args = new Bundle();
