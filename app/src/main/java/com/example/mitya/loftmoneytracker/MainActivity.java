@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragments);
+        setContentView(R.layout.activity_main);
         final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         final ViewPager pages = (ViewPager) findViewById(R.id.pages);
 
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
             Bundle args = new Bundle();
             if (position == getCount() - 1)
                 return new BalanceFragment();
-            args.putString("type", types[1]);
             args.putString("type", types[position]);
 
             final ItemsFragment itemsFragment = new ItemsFragment();
