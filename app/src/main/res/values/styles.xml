@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/dark_blue_grey</item>
         <item name="colorPrimaryDark">@color/dark_blue_grey</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
     </style>
 
     <style name="Text.Item" parent="">
@@ -14,6 +15,14 @@
         <item name="android:padding">@dimen/margin_l</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/regular_text</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_blue_grey</item>
+        <item name="colorPrimaryDark">@color/dark_blue_grey</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionModeBackground">@color/colorPrimary</item>
+        <item name="windowActionModeOverlay">true</item>
     </style>
 
 </resources>

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -13,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragments);
+        setContentView(R.layout.activity_main);
         final TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         final ViewPager pages = (ViewPager) findViewById(R.id.pages);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         pages.setAdapter(new MainPagerAdapter());
         tabs.setupWithViewPager(pages);
-        getSupportActionBar().setElevation(0);
     }
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             Bundle args = new Bundle();
             if (position == getCount() - 1)
                 return new BalanceFragment();
-            args.putString("type", types[1]);
             args.putString("type", types[position]);
 
             final ItemsFragment itemsFragment = new ItemsFragment();

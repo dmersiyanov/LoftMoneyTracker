@@ -6,7 +6,12 @@
     android:background="@drawable/bg_pattern"
     tools:context="com.example.mitya.loftmoneytracker.AddActivity">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:elevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:paddingLeft="@dimen/margin_l"
@@ -53,4 +58,5 @@
             tools:ignore="HardcodedText" />
 
     </LinearLayout>
+    </android.support.v7.widget.CardView>
 </FrameLayout>
