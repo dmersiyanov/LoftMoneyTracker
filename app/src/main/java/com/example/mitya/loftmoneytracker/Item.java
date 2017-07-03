@@ -18,9 +18,6 @@ public class Item implements Serializable {
         this.type = type;
     }
 
-    private final String[] types = {"expense",
-            "income"};
-
     static final String TYPE_EXPENSE = "expense";
     static final String TYPE_INCOME = "income";
 

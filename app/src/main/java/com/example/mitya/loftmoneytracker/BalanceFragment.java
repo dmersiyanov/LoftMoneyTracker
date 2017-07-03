@@ -12,8 +12,6 @@ import android.view.ViewGroup;
  */
 
 public class BalanceFragment extends Fragment {
-    public static final String ARG_TYPE = "type";
-    private String type;
 
     @Nullable
     @Override
