@@ -7,8 +7,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -37,6 +43,29 @@ public class ItemsFragment extends Fragment {
     private LSApi api;
     private ItemsAdapter adapter = new ItemsAdapter();
     private View add;
+    private ActionMode actionMode;
+    private ActionMode.Callback actionModeCallBack = new ActionMode.Callback() {
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            mode.getMenuInflater().inflate(R.menu.items, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            return false;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+
+        }
+    };
 
     @Nullable
     @Override
@@ -50,6 +79,34 @@ public class ItemsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final RecyclerView items = (RecyclerView) view.findViewById(R.id.items);
         items.setAdapter(adapter);
+
+        final GestureDetector gestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public void onLongPress(MotionEvent e) {
+                actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(actionModeCallBack);
+                toggleSelection(e, items);
+//                String title = "?? выбрано";
+//                actionMode.setTitle(title);
+
+            }
+
+            @Override
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                toggleSelection(e, items);
+                return super.onSingleTapConfirmed(e);
+            }
+
+
+        });
+
+        items.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
+
+
         add = view.findViewById(R.id.add_button);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +122,10 @@ public class ItemsFragment extends Fragment {
         api = ((LsApp) getActivity().getApplication()).api();
 
         loadItems();
+    }
+
+    private void toggleSelection(MotionEvent e, RecyclerView items) {
+        adapter.toggleSelection(items.getChildLayoutPosition(items.findChildViewUnder(e.getX(), e.getY())));
     }
 
     private void loadItems() {
