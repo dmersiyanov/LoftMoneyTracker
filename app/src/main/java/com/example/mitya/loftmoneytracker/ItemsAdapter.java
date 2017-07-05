@@ -58,6 +58,23 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
         return items.size();
     }
 
+    void clearSelections() {
+        selectedItems.clear();
+        notifyDataSetChanged();
+    }
+
+    int getSelectedItemCount() {
+        return selectedItems.size();
+    }
+
+    List<Integer> getSelectedItems() {
+        List<Integer> items = new ArrayList<>(selectedItems.size());
+        for (int i = 0; i < selectedItems.size(); i++) {
+            items.add(selectedItems.keyAt(i));
+        }
+        return items;
+    }
+
     static class ItemViewHolder extends RecyclerView.ViewHolder {
         private final TextView name, price;
         private final View container;

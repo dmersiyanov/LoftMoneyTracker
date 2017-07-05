@@ -47,7 +47,9 @@ public class ItemsFragment extends Fragment {
     private ActionMode.Callback actionModeCallBack = new ActionMode.Callback() {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            mode.getMenuInflater().inflate(R.menu.items, menu);
+            actionMode = mode;
+            actionMode.getMenuInflater().inflate(R.menu.items, menu);
+
             return true;
         }
 
@@ -58,14 +60,27 @@ public class ItemsFragment extends Fragment {
 
         @Override
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu_remove:
+                    for (Integer selectedItemId : adapter.getSelectedItems())
+                        removeItem();
+                    actionMode.finish();
+                    return true;
+            }
             return false;
         }
 
         @Override
         public void onDestroyActionMode(ActionMode mode) {
+            actionMode = null;
+            adapter.clearSelections();
 
         }
     };
+
+    private void removeItem() {
+
+    }
 
     @Nullable
     @Override
@@ -83,10 +98,15 @@ public class ItemsFragment extends Fragment {
         final GestureDetector gestureDetector = new GestureDetector(getActivity(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public void onLongPress(MotionEvent e) {
-                actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(actionModeCallBack);
+                if (actionMode == null) {
+                    actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(actionModeCallBack);
+                }
                 toggleSelection(e, items);
-//                String title = "?? выбрано";
-//                actionMode.setTitle(title);
+
+
+                String title = "?? выбрано";
+                actionMode.setTitle(title);
+
 
             }
 
