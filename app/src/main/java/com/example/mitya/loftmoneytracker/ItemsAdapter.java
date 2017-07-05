@@ -44,6 +44,21 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
         notifyDataSetChanged();
     }
 
+    void add(Item item) {
+        items.add(0, item);
+        notifyItemInserted(0);
+    }
+
+    void updateId(Item item, int id) {
+        item.id = id;
+    }
+
+    Item remove(int pos) {
+        final Item item = items.remove(pos);
+        notifyItemRemoved(pos);
+        return item;
+    }
+
     void toggleSelection(int pos) {
         if (selectedItems.get(pos, false)) {
             selectedItems.delete(pos);
@@ -58,10 +73,12 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHolder> {
         return items.size();
     }
 
+
     void clearSelections() {
         selectedItems.clear();
         notifyDataSetChanged();
     }
+
 
     int getSelectedItemCount() {
         return selectedItems.size();
