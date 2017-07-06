@@ -1,5 +1,6 @@
 package com.example.mitya.loftmoneytracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
         pages.setAdapter(new MainPagerAdapter());
         tabs.setupWithViewPager(pages);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!((LsApp) getApplication()).isLoggedIn())
+            startActivity(new Intent(this, AuthActivity.class));
+        else {
+
+        }
     }
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
