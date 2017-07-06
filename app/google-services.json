@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "957421147174",
+    "project_id": "loft-moneytracker"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957421147174:android:090ee88a268ac82e",
+        "android_client_info": {
+          "package_name": "com.mitya.loftmoneytracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957421147174-8sja2e6d7agng1ej2cti7k8i5otsa1ju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mitya.loftmoneytracker",
+            "certificate_hash": "055dc1377f5c8a5904bd66eff1d171d2a741bf16"
+          }
+        },
+        {
+          "client_id": "957421147174-9u45f5g002u3ihfoob2jild6o87gsjul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUybyyb5bNTAHvpqcwW8kUT5pFaQ4wicI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
