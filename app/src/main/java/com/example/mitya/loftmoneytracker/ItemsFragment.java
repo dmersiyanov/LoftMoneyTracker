@@ -52,8 +52,8 @@ public class ItemsFragment extends Fragment {
     private ActionMode.Callback actionModeCallBack = new ActionMode.Callback() {
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            actionMode = mode;
-            actionMode.getMenuInflater().inflate(R.menu.items, menu);
+            mode.getMenuInflater().inflate(R.menu.items, menu);
+            add.setVisibility(View.GONE);
             return true;
         }
 
@@ -76,8 +76,8 @@ public class ItemsFragment extends Fragment {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--)
-                                        removeItem(adapter.remove(adapter.getSelectedItems().get(i)));
+                                    for (Integer selectedItemId : adapter.getSelectedItems())
+                                        removeItem(adapter.remove(adapter.getSelectedItems().get(selectedItemId)));
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
@@ -121,7 +121,7 @@ public class ItemsFragment extends Fragment {
             public void onLongPress(MotionEvent e) {
                 if (actionMode == null) {
                     actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(actionModeCallBack);
-                    add.setVisibility(View.INVISIBLE);
+
                 }
                 toggleSelection(e, items);
 
@@ -129,7 +129,10 @@ public class ItemsFragment extends Fragment {
 
             @Override
             public boolean onSingleTapConfirmed(MotionEvent e) {
-                toggleSelection(e, items);
+                if (actionMode != null) {
+                    toggleSelection(e, items);
+
+                }
                 return super.onSingleTapConfirmed(e);
             }
 
@@ -171,7 +174,7 @@ public class ItemsFragment extends Fragment {
     private void toggleSelection(MotionEvent e, RecyclerView items) {
         adapter.toggleSelection(items.getChildLayoutPosition(items.findChildViewUnder(e.getX(), e.getY())));
         String title = adapter.getSelectedItemCount() + " выбрано";
-        actionMode.setTitle(title);
+        if (actionMode != null) actionMode.setTitle(title);
     }
 
     private void loadItems() {
