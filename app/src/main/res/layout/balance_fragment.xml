@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fontFamily="sans-serif"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/balance"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:text="BalanceFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:maxLines="1"
+            android:textColor="@color/color_primaty_bright"
+            android:textSize="50sp"
+            tools:text="48000 \u20bd" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/balance_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/balance"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/your_balance"
+            android:textColor="@color/colorComment"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/balance_caption"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:textColor="@color/colorExpense"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_widthPercent="50%"
+            tools:text="15000 \u20bd" />
+
+        <TextView
+            android:id="@+id/income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/balance_caption"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:textColor="@color/colorItem"
+            android:textSize="@dimen/text_xlarge"
+            app:layout_widthPercent="50%"
+            tools:text="95000 \u20bd" />
+
+        <TextView
+            android:id="@+id/expense_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/expense"
+            android:gravity="center_horizontal"
+            android:text="@string/expense"
+            android:textColor="@color/colorComment"
+            android:textSize="13sp"
+            app:layout_widthPercent="50%" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/expense"
+            android:gravity="center_horizontal"
+            android:text="@string/income"
+            android:textColor="@color/colorComment"
+            android:textSize="13sp"
+            app:layout_widthPercent="50%" />
+
+        <com.example.mitya.loftmoneytracker.DiagramView
+            android:id="@+id/diagram"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/expense_caption"
+            android:layout_margin="20dp" />
+
+</android.support.percent.PercentRelativeLayout>
