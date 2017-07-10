@@ -66,9 +66,6 @@ public class ItemsFragment extends Fragment {
         public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu_remove:
-                    // удаление с сервера еще не реализовано, но вставил для след. занятия
-                    //for (Integer selectedItemId : adapter.getSelectedItems())
-                    // removeItem();
                     new AlertDialog.Builder(getContext())
                             .setCancelable(false)
                             .setTitle(R.string.app_name)
@@ -76,8 +73,9 @@ public class ItemsFragment extends Fragment {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    for (Integer selectedItemId : adapter.getSelectedItems())
-                                        removeItem(adapter.remove(adapter.getSelectedItems().get(selectedItemId)));
+                                    for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--)
+                                        removeItem(adapter.remove(adapter.getSelectedItems().get(i)));
+
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
@@ -199,7 +197,7 @@ public class ItemsFragment extends Fragment {
             @Override
             public void onLoadFinished(Loader<List<Item>> loader, List<Item> data) {
                 if (data == null) {
-                    Toast.makeText(getContext(), R.string.error, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.loading_error, Toast.LENGTH_SHORT).show();
                 } else {
                     adapter.clear();
                     adapter.addAll(data);
@@ -217,6 +215,7 @@ public class ItemsFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RC_ADD_ITEM && resultCode == RESULT_OK) {
             Item item = (Item) data.getSerializableExtra(AddActivity.RESULT_ITEM);
+            addItem(item);
             Toast toast = Toast.makeText(getContext(), item.name + " " + item.price, Toast.LENGTH_LONG);
             toast.show();
         }
@@ -243,6 +242,7 @@ public class ItemsFragment extends Fragment {
             @Override
             public void onLoadFinished(Loader<AddResult> loader, AddResult data) {
                 adapter.updateId(item, data.id);
+                adapter.add(item);
 
             }
 

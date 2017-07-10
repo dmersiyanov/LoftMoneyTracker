@@ -91,7 +91,7 @@ public class AuthActivity extends AppCompatActivity {
 
 
     private void showError() {
-        Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.auth_error, Toast.LENGTH_SHORT).show();
     }
 }
 

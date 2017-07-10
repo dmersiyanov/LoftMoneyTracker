@@ -22,6 +22,8 @@
     <string name="expense">расход</string>
     <string name="income">доход</string>
     <string name="price">%1$d \u20bd</string>
+    <string name="loading_error">Произошла ошибка загрузки</string>
+    <string name="auth_error">Произошла ошибка авторизации</string>
 
 
 </resources>
