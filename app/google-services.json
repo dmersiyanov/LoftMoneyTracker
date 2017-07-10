@@ -13,16 +13,24 @@
       },
       "oauth_client": [
         {
-          "client_id": "957421147174-8sja2e6d7agng1ej2cti7k8i5otsa1ju.apps.googleusercontent.com",
+          "client_id": "957421147174-q2df3boqlmh4pg1g898nn443ps1ag5if.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "957421147174-nil2ceuliucrkks5u4acc4ru9nnnvmqb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mitya.loftmoneytracker",
+            "certificate_hash": "5ab8805a24230ee840402ff3571d949d0f83e1ca"
+          }
+        },
+        {
+          "client_id": "957421147174-7i7htgv6bod4kk8u9mk7ctre80sbfjgk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.mitya.loftmoneytracker",
             "certificate_hash": "055dc1377f5c8a5904bd66eff1d171d2a741bf16"
           }
-        },
-        {
-          "client_id": "957421147174-9u45f5g002u3ihfoob2jild6o87gsjul.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
