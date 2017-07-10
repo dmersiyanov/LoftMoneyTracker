@@ -216,8 +216,8 @@ public class ItemsFragment extends Fragment {
         if (requestCode == RC_ADD_ITEM && resultCode == RESULT_OK) {
             Item item = (Item) data.getSerializableExtra(AddActivity.RESULT_ITEM);
             addItem(item);
-            Toast toast = Toast.makeText(getContext(), item.name + " " + item.price, Toast.LENGTH_LONG);
-            toast.show();
+            // Toast toast = Toast.makeText(getContext(), item.name + " " + item.price, Toast.LENGTH_LONG);
+            // toast.show();
         }
     }
 
