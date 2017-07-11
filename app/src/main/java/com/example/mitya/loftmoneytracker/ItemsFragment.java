@@ -76,8 +76,8 @@ public class ItemsFragment extends Fragment {
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
-                                    for (Integer selectedItemId : adapter.getSelectedItems())
-                                        removeItem(adapter.remove(adapter.getSelectedItems().get(selectedItemId)));
+                                    for (int i = adapter.getSelectedItems().size() - 1; i >= 0; i--)
+                                        removeItem(adapter.remove(adapter.getSelectedItems().get(i)));
                                 }
                             })
                             .setNegativeButton(android.R.string.cancel, null)
