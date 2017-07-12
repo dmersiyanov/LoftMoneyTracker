@@ -10,7 +10,7 @@
     <ImageView
         android:layout_centerHorizontal="true"
         android:id="@+id/logo"
-        android:paddingTop="50dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/logo"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
@@ -42,8 +42,8 @@
         android:layout_alignParentBottom="true"
         android:id="@+id/auth_img"
         android:layout_marginTop="75dp"
-        android:layout_gravity="bottom"
         android:src="@drawable/bg_intro"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
