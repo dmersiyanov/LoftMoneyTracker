@@ -16,6 +16,8 @@
         <item>@string/incomes</item>
         <item>@string/balance</item>
     </array>
+    <string name="title_activity_auth">AuthActivity</string>
+    <string name="auth_text">Ваш незаменимый помощник в управлении бюджетом</string>
 
 
 </resources>

@@ -45,13 +45,11 @@ public class LsApp extends Application {
                 .addInterceptor(new AuthInterceptor())
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://loftschoolandroid.getsandbox.com/")
-                //.baseUrl("http://android.loftschool.com/basic/v1/")
+                .baseUrl("http://android.loftschool.com/basic/v1/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();
         api = retrofit.create(LSApi.class);
-
     }
 
     public void setAuthToken(String authToken) {
